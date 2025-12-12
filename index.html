@@ -5,24 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assistance - Noorly</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: Georgia, serif;
-            background: linear-gradient(135deg,
-                rgb(245, 239, 234) 0%,
-                rgb(250, 237, 227) 50%,
-                rgb(252, 242, 237) 100%);
+            background: linear-gradient(135deg, rgb(245, 239, 234) 0%, rgb(250, 237, 227) 50%, rgb(252, 242, 237) 100%);
             color: rgb(77, 89, 102);
             line-height: 1.8;
             min-height: 100vh;
             padding: 40px 20px;
         }
-
         .container {
             max-width: 700px;
             margin: 0 auto;
@@ -31,23 +22,30 @@
             border-radius: 20px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         }
-
-        h1 {
-            font-size: 48px;
-            font-weight: 300;
-            color: rgb(77, 89, 102);
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .tabs {
+        .lang-switch {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+            font-size: 14px;
         }
-
+        .lang-btn {
+            padding: 6px 14px;
+            background: transparent;
+            border: 1px solid rgb(128, 140, 153);
+            border-radius: 15px;
+            cursor: pointer;
+            color: rgb(128, 140, 153);
+            font-family: Georgia, serif;
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
+            background: rgb(64, 89, 115);
+            color: white;
+            border-color: rgb(64, 89, 115);
+        }
+        h1 { font-size: 48px; font-weight: 300; color: rgb(77, 89, 102); margin-bottom: 15px; text-align: center; }
+        .tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
         .tab {
             padding: 10px 25px;
             background: rgba(255, 255, 255, 0.4);
@@ -58,185 +56,132 @@
             transition: all 0.3s ease;
             border: 1px solid transparent;
         }
-
-        .tab:hover {
-            background: rgba(255, 255, 255, 0.7);
-        }
-
-        .tab.active {
-            background: rgba(64, 89, 115, 0.15);
-            color: rgb(64, 89, 115);
-            font-weight: 500;
-            border: 1px solid rgba(64, 89, 115, 0.2);
-        }
-
-        .content {
-            display: none;
-        }
-
-        .content.active {
-            display: block;
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 20px;
-            color: rgb(128, 140, 153);
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
-        h2 {
-            font-size: 22px;
-            font-weight: 400;
-            color: rgb(64, 82, 102);
-            margin-top: 35px;
-            margin-bottom: 12px;
-        }
-
-        p {
-            margin-bottom: 18px;
-            font-size: 16px;
-        }
-
-        .contact-box {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 30px 0;
-            text-align: center;
-        }
-
-        .email {
-            font-size: 18px;
-            color: rgb(64, 89, 115);
-            font-weight: 500;
-        }
-
-        .date {
-            text-align: center;
-            font-size: 14px;
-            color: rgb(128, 140, 153);
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 40px 25px;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            .tabs {
-                gap: 10px;
-            }
-
-            .tab {
-                padding: 8px 18px;
-                font-size: 14px;
-            }
-        }
+        .tab:hover { background: rgba(255, 255, 255, 0.7); }
+        .tab.active { background: rgba(64, 89, 115, 0.15); color: rgb(64, 89, 115); font-weight: 500; border: 1px solid rgba(64, 89, 115, 0.2); }
+        .content { display: none; }
+        .content.active { display: block; }
+        .subtitle { text-align: center; font-size: 20px; color: rgb(128, 140, 153); margin-bottom: 30px; font-style: italic; }
+        h2 { font-size: 22px; font-weight: 400; color: rgb(64, 82, 102); margin-top: 35px; margin-bottom: 12px; }
+        p { margin-bottom: 18px; font-size: 16px; }
+        .contact-box { background: rgba(255, 255, 255, 0.5); padding: 25px; border-radius: 15px; margin: 30px 0; text-align: center; }
+        .email { font-size: 18px; color: rgb(64, 89, 115); font-weight: 500; }
+        .date { text-align: center; font-size: 14px; color: rgb(128, 140, 153); margin-bottom: 25px; font-style: italic; }
+        .lang { display: none; }
+        .lang.active { display: block; }
+        @media (max-width: 600px) { .container { padding: 40px 25px; } h1 { font-size: 36px; } }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+            <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+
         <h1>Noorly</h1>
 
-        <div class="tabs">
-            <div class="tab active" onclick="showTab('support')">Assistance</div>
-            <div class="tab" onclick="showTab('privacy')">Confidentialité</div>
+        <!-- FRANÇAIS -->
+        <div class="lang active" id="lang-fr">
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('support-fr', this)">Assistance</div>
+                <div class="tab" onclick="showTab('privacy-fr', this)">Confidentialité</div>
+            </div>
+            <div id="support-fr" class="content active">
+                <div class="subtitle">Assistance</div>
+                <p>Bienvenue sur la page d'assistance de Noorly. Nous sommes là pour vous aider à profiter pleinement de votre expérience avec l'application.</p>
+                <h2>Questions fréquentes</h2>
+                <p><strong>Comment sauvegarder ma progression ?</strong><br>Votre progression est automatiquement sauvegardée sur votre appareil lorsque vous lisez le Coran.</p>
+                <p><strong>Comment définir mes objectifs de lecture ?</strong><br>Accédez aux réglages de l'application pour personnaliser vos objectifs quotidiens.</p>
+                <p><strong>Le widget ne s'affiche pas</strong><br>Assurez-vous d'avoir ajouté le widget Noorly depuis l'écran d'accueil de votre iPhone.</p>
+                <h2>Besoin d'aide ?</h2>
+                <div class="contact-box">
+                    <p>Pour toute question ou assistance, contactez-nous :</p>
+                    <p class="email">samy.aberkane0@gmail.com</p>
+                </div>
+                <p>Nous répondons généralement sous 48 heures.</p>
+            </div>
+            <div id="privacy-fr" class="content">
+                <div class="subtitle">Politique de Confidentialité</div>
+                <div class="date">Dernière mise à jour : 7 novembre 2025</div>
+                <h2>Introduction</h2>
+                <p>Noorly respecte votre vie privée. Cette politique de confidentialité explique comment nous traitons vos informations lors de l'utilisation de notre application.</p>
+                <h2>Collecte de données</h2>
+                <p>Noorly ne collecte aucune donnée personnelle identifiable. L'application fonctionne entièrement en local sur votre appareil.</p>
+                <h2>Données stockées localement</h2>
+                <p>Les informations suivantes sont stockées uniquement sur votre appareil et ne sont jamais transmises à nos serveurs :<br>- Votre progression de lecture dans le Coran<br>- Vos objectifs de lecture personnalisés<br>- Vos préférences d'utilisation de l'application</p>
+                <h2>Partage de données</h2>
+                <p>Nous ne partageons, ne vendons, ni ne transmettons vos données à des tiers. Aucune donnée n'est collectée, il n'y a donc rien à partager.</p>
+                <h2>Sécurité</h2>
+                <p>Toutes vos données restent sur votre appareil et sont protégées par les mesures de sécurité de votre système iOS.</p>
+                <h2>Services tiers</h2>
+                <p>Noorly n'utilise aucun service d'analyse, de publicité ou de suivi tiers.</p>
+                <h2>Modifications</h2>
+                <p>Nous pouvons mettre à jour cette politique de confidentialité occasionnellement. Les modifications seront publiées sur cette page.</p>
+                <div class="contact-box">
+                    <p>Pour toute question concernant cette politique :</p>
+                    <p class="email">samy.aberkane0@gmail.com</p>
+                </div>
+            </div>
         </div>
 
-        <div id="support" class="content active">
-            <div class="subtitle">Assistance</div>
-
-        <p>Bienvenue sur la page d'assistance de Noorly. Nous sommes là pour vous aider à profiter pleinement de votre expérience avec l'application.</p>
-
-        <h2>Questions fréquentes</h2>
-
-        <p><strong>Comment sauvegarder ma progression ?</strong><br>
-        Votre progression est automatiquement sauvegardée sur votre appareil lorsque vous lisez le Coran.</p>
-
-        <p><strong>Comment définir mes objectifs de lecture ?</strong><br>
-        Accédez aux réglages de l'application pour personnaliser vos objectifs quotidiens.</p>
-
-        <p><strong>Le widget ne s'affiche pas</strong><br>
-        Assurez-vous d'avoir ajouté le widget Noorly depuis l'écran d'accueil de votre iPhone.</p>
-
-        <h2>Besoin d'aide ?</h2>
-
-        <div class="contact-box">
-            <p>Pour toute question ou assistance, contactez-nous :</p>
-            <p class="email">samy.aberkane0@gmail.com</p>
-        </div>
-
-        <p>Nous répondons généralement sous 48 heures.</p>
-        </div>
-
-        <div id="privacy" class="content">
-            <div class="subtitle">Politique de Confidentialité</div>
-            <div class="date">Dernière mise à jour : 7 novembre 2025</div>
-
-            <h2>Introduction</h2>
-            <p>Noorly respecte votre vie privée. Cette politique de confidentialité explique comment nous traitons vos informations lors de l'utilisation de notre application.</p>
-
-            <h2>Collecte de données</h2>
-            <p>Noorly ne collecte aucune donnée personnelle identifiable. L'application fonctionne entièrement en local sur votre appareil.</p>
-
-            <h2>Données stockées localement</h2>
-            <p>Les informations suivantes sont stockées uniquement sur votre appareil et ne sont jamais transmises à nos serveurs :</p>
-            <p>- Votre progression de lecture dans le Coran<br>
-            - Vos objectifs de lecture personnalisés<br>
-            - Vos préférences d'utilisation de l'application</p>
-
-            <h2>Partage de données</h2>
-            <p>Nous ne partageons, ne vendons, ni ne transmettons vos données à des tiers. Aucune donnée n'est collectée, il n'y a donc rien à partager.</p>
-
-            <h2>Sécurité</h2>
-            <p>Toutes vos données restent sur votre appareil et sont protégées par les mesures de sécurité de votre système iOS.</p>
-
-            <h2>Services tiers</h2>
-            <p>Noorly n'utilise aucun service d'analyse, de publicité ou de suivi tiers.</p>
-
-            <h2>Modifications</h2>
-            <p>Nous pouvons mettre à jour cette politique de confidentialité occasionnellement. Les modifications seront publiées sur cette page.</p>
-
-            <div class="contact-box">
-                <p>Pour toute question concernant cette politique :</p>
-                <p class="email">samy.aberkane0@gmail.com</p>
+        <!-- ENGLISH -->
+        <div class="lang" id="lang-en">
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('support-en', this)">Support</div>
+                <div class="tab" onclick="showTab('privacy-en', this)">Privacy</div>
+            </div>
+            <div id="support-en" class="content active">
+                <div class="subtitle">Support</div>
+                <p>Welcome to the Noorly support page. We're here to help you make the most of your experience with the app.</p>
+                <h2>Frequently Asked Questions</h2>
+                <p><strong>How do I save my progress?</strong><br>Your progress is automatically saved on your device when you read the Quran.</p>
+                <p><strong>How do I set my reading goals?</strong><br>Go to the app settings to customize your daily goals.</p>
+                <p><strong>The widget is not showing</strong><br>Make sure you've added the Noorly widget from your iPhone's home screen.</p>
+                <h2>Need help?</h2>
+                <div class="contact-box">
+                    <p>For any questions or assistance, contact us:</p>
+                    <p class="email">samy.aberkane0@gmail.com</p>
+                </div>
+                <p>We typically respond within 48 hours.</p>
+            </div>
+            <div id="privacy-en" class="content">
+                <div class="subtitle">Privacy Policy</div>
+                <div class="date">Last updated: November 7, 2025</div>
+                <h2>Introduction</h2>
+                <p>Noorly respects your privacy. This privacy policy explains how we handle your information when using our app.</p>
+                <h2>Data Collection</h2>
+                <p>Noorly does not collect any personally identifiable data. The app works entirely locally on your device.</p>
+                <h2>Locally Stored Data</h2>
+                <p>The following information is stored only on your device and is never transmitted to our servers:<br>- Your Quran reading progress<br>- Your personalized reading goals<br>- Your app usage preferences</p>
+                <h2>Data Sharing</h2>
+                <p>We do not share, sell, or transmit your data to third parties. No data is collected, so there is nothing to share.</p>
+                <h2>Security</h2>
+                <p>All your data stays on your device and is protected by your iOS system's security measures.</p>
+                <h2>Third-Party Services</h2>
+                <p>Noorly does not use any third-party analytics, advertising, or tracking services.</p>
+                <h2>Changes</h2>
+                <p>We may update this privacy policy occasionally. Changes will be posted on this page.</p>
+                <div class="contact-box">
+                    <p>For any questions about this policy:</p>
+                    <p class="email">samy.aberkane0@gmail.com</p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        function showTab(tabName) {
-            // Masquer tous les contenus
-            const contents = document.querySelectorAll('.content');
-            contents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // Désactiver tous les onglets
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-
-            // Activer l'onglet sélectionné
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+        function setLang(lang) {
+            document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('lang-' + lang).classList.add('active');
+            document.querySelector('.lang-btn[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+        }
+        function showTab(tabId, btn) {
+            const parent = btn.closest('.lang');
+            parent.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            parent.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
         }
     </script>
 </body>
