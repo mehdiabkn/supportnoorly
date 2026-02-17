@@ -68,6 +68,15 @@
         .date { text-align: center; font-size: 14px; color: rgb(128, 140, 153); margin-bottom: 25px; font-style: italic; }
         .lang { display: none; }
         .lang.active { display: block; }
+        .highlight-box {
+            background: rgba(64, 89, 115, 0.08);
+            border-left: 3px solid rgb(64, 89, 115);
+            padding: 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+        .highlight-box p { margin-bottom: 10px; }
+        .highlight-box p:last-child { margin-bottom: 0; }
         @media (max-width: 600px) { .container { padding: 40px 25px; } h1 { font-size: 36px; } }
     </style>
 </head>
@@ -85,6 +94,7 @@
             <div class="tabs">
                 <div class="tab active" onclick="showTab('support-fr', this)">Assistance</div>
                 <div class="tab" onclick="showTab('privacy-fr', this)">Confidentialité</div>
+                <div class="tab" onclick="showTab('deletion-fr', this)">Suppression des données</div>
             </div>
             <div id="support-fr" class="content active">
                 <div class="subtitle">Assistance</div>
@@ -106,20 +116,63 @@
                 <h2>Introduction</h2>
                 <p>Noorly respecte votre vie privée. Cette politique de confidentialité explique comment nous traitons vos informations lors de l'utilisation de notre application.</p>
                 <h2>Collecte de données</h2>
-                <p>Noorly ne collecte aucune donnée personnelle identifiable. L'application fonctionne entièrement en local sur votre appareil.</p>
+                <p>Noorly ne collecte aucune donnée personnelle identifiable. L'application ne requiert aucun compte utilisateur, aucun nom, aucun pseudonyme, aucune adresse e-mail ni aucune autre information personnelle.</p>
                 <h2>Données stockées localement</h2>
-                <p>Les informations suivantes sont stockées uniquement sur votre appareil et ne sont jamais transmises à nos serveurs :<br>- Votre progression de lecture dans le Coran<br>- Vos objectifs de lecture personnalisés<br>- Vos préférences d'utilisation de l'application</p>
+                <p>Les informations suivantes sont stockées uniquement sur votre appareil et ne sont jamais transmises à nos serveurs :</p>
+                <div class="highlight-box">
+                    <p>— Votre tranche d'âge (sélectionnée lors de la configuration)</p>
+                    <p>— Vos versets favoris</p>
+                    <p>— Votre progression de lecture dans le Coran</p>
+                    <p>— Vos objectifs de lecture personnalisés</p>
+                    <p>— Vos préférences d'utilisation de l'application</p>
+                </div>
+                <p>Aucune de ces informations ne quitte votre appareil. Nous n'avons accès à aucune de ces données.</p>
+                <h2>Connexion via Facebook</h2>
+                <p>Si vous utilisez Facebook pour interagir avec Noorly (par exemple via une connexion Facebook Login), sachez que Noorly ne stocke, ne conserve et ne traite aucune donnée provenant de votre compte Facebook. Aucune information de votre profil Facebook n'est collectée ni enregistrée sur nos serveurs.</p>
                 <h2>Partage de données</h2>
-                <p>Nous ne partageons, ne vendons, ni ne transmettons vos données à des tiers. Aucune donnée n'est collectée, il n'y a donc rien à partager.</p>
+                <p>Nous ne partageons, ne vendons, ni ne transmettons vos données à des tiers. Aucune donnée n'est collectée sur nos serveurs, il n'y a donc rien à partager.</p>
                 <h2>Sécurité</h2>
                 <p>Toutes vos données restent sur votre appareil et sont protégées par les mesures de sécurité de votre système iOS.</p>
                 <h2>Services tiers</h2>
                 <p>Noorly n'utilise aucun service d'analyse, de publicité ou de suivi tiers.</p>
+                <h2>Suppression des données</h2>
+                <p>Puisque Noorly ne stocke aucune donnée sur des serveurs externes, la suppression de l'application de votre appareil supprime automatiquement et définitivement toutes les données associées. Pour plus de détails, consultez notre page <strong>Suppression des données</strong>.</p>
                 <h2>Modifications</h2>
                 <p>Nous pouvons mettre à jour cette politique de confidentialité occasionnellement. Les modifications seront publiées sur cette page.</p>
                 <div class="contact-box">
                     <p>Pour toute question concernant cette politique :</p>
                     <p class="email">samy.aberkane0@gmail.com</p>
+                </div>
+            </div>
+            <div id="deletion-fr" class="content">
+                <div class="subtitle">Suppression des données</div>
+                <div class="date">Dernière mise à jour : 7 novembre 2025</div>
+                <h2>Noorly et vos données</h2>
+                <p>Noorly est conçue dans le respect total de votre vie privée. L'application <strong>ne collecte, ne stocke et ne transmet aucune donnée personnelle</strong> sur des serveurs externes. Il n'y a aucun compte utilisateur, aucune base de données distante, et aucun suivi.</p>
+                <h2>Quelles données sont concernées ?</h2>
+                <p>Les seules données existantes sont stockées localement sur votre appareil :</p>
+                <div class="highlight-box">
+                    <p>— Votre tranche d'âge</p>
+                    <p>— Vos versets favoris</p>
+                    <p>— Votre progression de lecture</p>
+                    <p>— Vos objectifs et préférences</p>
+                </div>
+                <h2>Comment supprimer vos données ?</h2>
+                <p><strong>Supprimer l'application</strong> de votre iPhone suffit à supprimer l'intégralité de vos données de manière permanente et irréversible. Aucune donnée ne subsiste sur un quelconque serveur après la désinstallation.</p>
+                <p><strong>Réinitialiser dans l'application :</strong> vous pouvez également réinitialiser vos données directement depuis les réglages de l'application, sans avoir à la désinstaller.</p>
+                <h2>Données liées à Facebook</h2>
+                <p>Noorly ne reçoit, ne stocke et ne conserve aucune donnée provenant de Facebook. Si vous avez utilisé Facebook Login pour interagir avec Noorly, sachez qu'aucune information de votre profil Facebook n'a été enregistrée de notre côté.</p>
+                <p>Pour révoquer l'accès de Noorly à votre compte Facebook, rendez-vous dans :</p>
+                <div class="highlight-box">
+                    <p><strong>Facebook → Paramètres → Applications et sites web → Noorly → Supprimer</strong></p>
+                </div>
+                <p>Cette action suffit car aucune donnée Facebook n'est conservée par Noorly.</p>
+                <h2>Confirmation de suppression</h2>
+                <p>Puisqu'aucune donnée n'est stockée sur nos serveurs, la suppression est immédiate et totale dès la désinstallation de l'application ou la réinitialisation dans les réglages. Aucune démarche supplémentaire n'est nécessaire.</p>
+                <div class="contact-box">
+                    <p>Si vous avez la moindre question sur la suppression de vos données :</p>
+                    <p class="email">samy.aberkane0@gmail.com</p>
+                    <p style="font-size: 14px; color: rgb(128, 140, 153); margin-top: 10px; margin-bottom: 0;">Nous répondons sous 48 heures.</p>
                 </div>
             </div>
         </div>
@@ -129,6 +182,7 @@
             <div class="tabs">
                 <div class="tab active" onclick="showTab('support-en', this)">Support</div>
                 <div class="tab" onclick="showTab('privacy-en', this)">Privacy</div>
+                <div class="tab" onclick="showTab('deletion-en', this)">Data Deletion</div>
             </div>
             <div id="support-en" class="content active">
                 <div class="subtitle">Support</div>
@@ -150,20 +204,63 @@
                 <h2>Introduction</h2>
                 <p>Noorly respects your privacy. This privacy policy explains how we handle your information when using our app.</p>
                 <h2>Data Collection</h2>
-                <p>Noorly does not collect any personally identifiable data. The app works entirely locally on your device.</p>
+                <p>Noorly does not collect any personally identifiable data. The app does not require any user account, name, username, email address, or any other personal information.</p>
                 <h2>Locally Stored Data</h2>
-                <p>The following information is stored only on your device and is never transmitted to our servers:<br>- Your Quran reading progress<br>- Your personalized reading goals<br>- Your app usage preferences</p>
+                <p>The following information is stored only on your device and is never transmitted to our servers:</p>
+                <div class="highlight-box">
+                    <p>— Your age range (selected during setup)</p>
+                    <p>— Your favorite verses</p>
+                    <p>— Your Quran reading progress</p>
+                    <p>— Your personalized reading goals</p>
+                    <p>— Your app usage preferences</p>
+                </div>
+                <p>None of this information ever leaves your device. We have no access to any of this data.</p>
+                <h2>Facebook Login</h2>
+                <p>If you use Facebook to interact with Noorly (e.g., via Facebook Login), please note that Noorly does not store, retain, or process any data from your Facebook account. No information from your Facebook profile is collected or saved on our servers.</p>
                 <h2>Data Sharing</h2>
-                <p>We do not share, sell, or transmit your data to third parties. No data is collected, so there is nothing to share.</p>
+                <p>We do not share, sell, or transmit your data to third parties. No data is collected on our servers, so there is nothing to share.</p>
                 <h2>Security</h2>
                 <p>All your data stays on your device and is protected by your iOS system's security measures.</p>
                 <h2>Third-Party Services</h2>
                 <p>Noorly does not use any third-party analytics, advertising, or tracking services.</p>
+                <h2>Data Deletion</h2>
+                <p>Since Noorly does not store any data on external servers, deleting the app from your device automatically and permanently deletes all associated data. For more details, see our <strong>Data Deletion</strong> page.</p>
                 <h2>Changes</h2>
                 <p>We may update this privacy policy occasionally. Changes will be posted on this page.</p>
                 <div class="contact-box">
                     <p>For any questions about this policy:</p>
                     <p class="email">samy.aberkane0@gmail.com</p>
+                </div>
+            </div>
+            <div id="deletion-en" class="content">
+                <div class="subtitle">Data Deletion</div>
+                <div class="date">Last updated: November 7, 2025</div>
+                <h2>Noorly and Your Data</h2>
+                <p>Noorly is designed with full respect for your privacy. The app <strong>does not collect, store, or transmit any personal data</strong> to external servers. There are no user accounts, no remote databases, and no tracking.</p>
+                <h2>What data is involved?</h2>
+                <p>The only data that exists is stored locally on your device:</p>
+                <div class="highlight-box">
+                    <p>— Your age range</p>
+                    <p>— Your favorite verses</p>
+                    <p>— Your reading progress</p>
+                    <p>— Your goals and preferences</p>
+                </div>
+                <h2>How to delete your data</h2>
+                <p><strong>Delete the app</strong> from your iPhone to permanently and irreversibly delete all your data. No data remains on any server after uninstallation.</p>
+                <p><strong>Reset within the app:</strong> you can also reset your data directly from the app settings without uninstalling.</p>
+                <h2>Facebook-Related Data</h2>
+                <p>Noorly does not receive, store, or retain any data from Facebook. If you used Facebook Login to interact with Noorly, no information from your Facebook profile was ever saved on our end.</p>
+                <p>To revoke Noorly's access to your Facebook account, go to:</p>
+                <div class="highlight-box">
+                    <p><strong>Facebook → Settings → Apps and Websites → Noorly → Remove</strong></p>
+                </div>
+                <p>This is sufficient because no Facebook data is retained by Noorly.</p>
+                <h2>Deletion Confirmation</h2>
+                <p>Since no data is stored on our servers, deletion is immediate and complete upon uninstalling the app or resetting within settings. No further action is required.</p>
+                <div class="contact-box">
+                    <p>If you have any questions about data deletion:</p>
+                    <p class="email">samy.aberkane0@gmail.com</p>
+                    <p style="font-size: 14px; color: rgb(128, 140, 153); margin-top: 10px; margin-bottom: 0;">We respond within 48 hours.</p>
                 </div>
             </div>
         </div>
